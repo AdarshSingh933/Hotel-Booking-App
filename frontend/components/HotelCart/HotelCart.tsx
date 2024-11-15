@@ -3,7 +3,23 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Amenities from "./Amenties";
 
-const HotelCart = ({ hotel }: { hotel: any }) => {
+interface Hotel {
+  id: number;
+  name: string;
+  [key: string]: unknown; // For additional unknown properties
+  title:{
+    rendered:string;
+  };
+  acf:{
+    hotel_address:string;
+    hotel_gallery:number[];
+    hotel_rating:number;
+    'rate-per-night':number;
+    hotel_amenities:string;
+  };
+}
+
+const HotelCart = ({ hotel }: { hotel: Hotel }) => {
   const [imageUrls, setImageUrls] = useState<string[]>([]);
 
   useEffect(() => {

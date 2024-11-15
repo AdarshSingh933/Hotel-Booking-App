@@ -15,7 +15,7 @@ const Amenities: React.FC<AmenitiesProps> = ({ amenitiesHtml }) => {
   ).map((span) => span.textContent || "");
 
   // Define the facilities to show
-  const facilitiesToShow = ["Parking facility", "Dining area", "Reception"];
+  // const facilitiesToShow = ["Parking facility", "Dining area", "Reception"];
   const maxVisible = 3; // Max number of items to show before "+ more"
 
   // Transform the amenities to match the desired facilities

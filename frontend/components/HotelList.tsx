@@ -7,7 +7,17 @@ import PriceRangeFilter from "./Filter";
 interface Hotel {
   id: number;
   name: string;
-  [key: string]: any; // For additional unknown properties
+  [key: string]: unknown; // For additional unknown properties
+  title:{
+    rendered:string;
+  };
+  acf:{
+    hotel_address:string;
+    hotel_gallery:number[];
+    hotel_rating:number;
+    'rate-per-night':number;
+    hotel_amenities:string;
+  };
 }
 
 export default function HotelList() {
@@ -16,7 +26,7 @@ export default function HotelList() {
   const [page, setPage] = useState<number>(1);
   const [hasMore, setHasMore] = useState<boolean>(true); // To check if more hotels are available
   const [searchTerm, setSearchTerm] = useState<string>();
-  const [filteredHotels, setFilteredHotels] = useState<Hotel[]>([]); 
+  // const [filteredHotels, setFilteredHotels] = useState<Hotel[]>([]); 
   const BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
   useEffect(() => {
@@ -57,16 +67,16 @@ export default function HotelList() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [loading, hasMore]);
 
-  const handlePriceRangeChange = (min: number, max: number) => {
-    const filtered = hotels.filter(
-      (hotel) => hotel.price >= min && hotel.price <= max
-    );
-  };
+  // const handlePriceRangeChange = (min: number, max: number) => {
+  //   const filtered = hotels.filter(
+  //     (hotel) => hotel?.price >= min && hotel?.price <= max
+  //   );
+  // };
 
   return (
     <div className="hotel-list-main-container">
       <div className="hotel-list-sidebar">
-      <PriceRangeFilter onPriceRangeChange={handlePriceRangeChange}/>
+      <PriceRangeFilter />
       </div>
       <div className="hotel-list-container">
         <div className="hotel-list-search-conainer">

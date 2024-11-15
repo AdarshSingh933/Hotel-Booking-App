@@ -6,35 +6,33 @@ interface PriceRangeFilterProps {
   onPriceRangeChange: (min: number, max: number) => void;
 }
 
-export default function PriceRangeFilter({
-  onPriceRangeChange,
-}: PriceRangeFilterProps) {
-  const [minPrice, setMinPrice] = useState(3000);
-  const [maxPrice, setMaxPrice] = useState(4500);
-  const [currentMin, setCurrentMin] = useState(minPrice);
-  const [currentMax, setCurrentMax] = useState(maxPrice);
+export default function PriceRangeFilter() {
+  // const [minPrice, setMinPrice] = useState(3000);
+  // const [maxPrice, setMaxPrice] = useState(4500);
+  // const [currentMin, setCurrentMin] = useState(minPrice);
+  // const [currentMax, setCurrentMax] = useState(maxPrice);
 
-  useEffect(() => {
-    onPriceRangeChange(currentMin, currentMax);
-  }, [currentMin, currentMax, onPriceRangeChange]);
+  // useEffect(() => {
+  //   onPriceRangeChange(currentMin, currentMax);
+  // }, [currentMin, currentMax, onPriceRangeChange]);
 
-  const handleRangeChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    type: "min" | "max"
-  ) => {
-    const value = Number(e.target.value);
-    if (type === "min") {
-      if (value <= currentMax) setCurrentMin(value);
-    } else {
-      if (value >= currentMin) setCurrentMax(value);
-    }
-  };
+  // const handleRangeChange = (
+  //   e: React.ChangeEvent<HTMLInputElement>,
+  //   type: "min" | "max"
+  // ) => {
+  //   const value = Number(e.target.value);
+  //   if (type === "min") {
+  //     if (value <= currentMax) setCurrentMin(value);
+  //   } else {
+  //     if (value >= currentMin) setCurrentMax(value);
+  //   }
+  // };
 
-  const resetFilter = () => {
-    setCurrentMin(minPrice);
-    setCurrentMax(maxPrice);
-    onPriceRangeChange(minPrice, maxPrice);
-  };
+  // const resetFilter = () => {
+  //   setCurrentMin(minPrice);
+  //   setCurrentMax(maxPrice);
+  //   onPriceRangeChange(minPrice, maxPrice);
+  // };
 
   return (
     <>
@@ -53,25 +51,25 @@ export default function PriceRangeFilter({
               <h4>Price</h4>
               <div className="input-range">
                 <div className="input-range__values">
-                  <span>₹{currentMin}</span>
-                  <span>₹{currentMax}</span>
+                  <span>₹ 3300</span>
+                  <span>₹ 4500</span>
                 </div>
                 <div className="input-range__sliders">
                   <input
                     type="range"
                     className="input-range__slider"
-                    min={minPrice}
-                    max={maxPrice}
-                    value={currentMin}
-                    onChange={(e) => handleRangeChange(e, "min")}
+                    min='3300'
+                    max='4500'
+                    value='3300'
+                    // onChange={(e) => handleRangeChange(e, "min")}
                   />
                   <input
                     type="range"
                     className="input-range__slider"
-                    min={minPrice}
-                    max={maxPrice}
-                    value={currentMax}
-                    onChange={(e) => handleRangeChange(e, "max")}
+                    min='3300'
+                    max='4500'
+                    value='3300'
+                    // onChange={(e) => handleRangeChange(e, "max")}
                   />
                 </div>
               </div>
