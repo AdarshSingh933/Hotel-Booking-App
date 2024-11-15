@@ -17,14 +17,14 @@ export default function HotelList() {
   const [hasMore, setHasMore] = useState<boolean>(true); // To check if more hotels are available
   const [searchTerm, setSearchTerm] = useState<string>();
   const [filteredHotels, setFilteredHotels] = useState<Hotel[]>([]); 
-  const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "";
+  const BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
   useEffect(() => {
     async function fetchHotels() {
       setLoading(true);
       try {
         const response = await axios.get<Hotel[]>( // Type the response
-          `${BASE_URL}/hotels?page=${page}`
+          `${BASE_URL}/api/hotels?page=${page}`
         );
         const data = response.data;
         if (data.length === 0) {
@@ -93,7 +93,7 @@ export default function HotelList() {
                   <path
                     d="M0 0h8L4 6z"
                     fill="black"
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     opacity=".87"
                   ></path>
                 </svg>
