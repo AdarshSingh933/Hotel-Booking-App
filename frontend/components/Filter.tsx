@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
-interface PriceRangeFilterProps {
-  onPriceRangeChange: (min: number, max: number) => void;
-}
+// interface PriceRangeFilterProps {
+//   onPriceRangeChange: (min: number, max: number) => void;
+// }
 
 export default function PriceRangeFilter() {
   // const [minPrice, setMinPrice] = useState(3000);
