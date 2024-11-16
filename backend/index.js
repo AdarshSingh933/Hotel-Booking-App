@@ -4,7 +4,10 @@ const cors = require("cors");
 
 
 const app = express();
-const allowedOrigins = ['https://hotel-booking-app-2h71.onrender.com'];
+const allowedOrigins = [
+  'https://hotel-booking-app-gm-git-f5ce5f-adarsh-singhs-projects-dbd442d8.vercel.app',
+  'https://hotel-booking-app-gmtf-jbjgzztw4.vercel.app'
+];
 app.use(cors({ origin: allowedOrigins }));
 
 const BASE_URL = "https://api.elixirtrips.com/wp-json/wp/v2/hotels";
