@@ -27,7 +27,7 @@ export default function HotelList() {
   const [hasMore, setHasMore] = useState<boolean>(true); // To check if more hotels are available
   const [searchTerm, setSearchTerm] = useState<string>('');
   // const [filteredHotels, setFilteredHotels] = useState<Hotel[]>([]); 
-  const BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+  // const BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
   useEffect(() => {
     async function fetchHotels() {
