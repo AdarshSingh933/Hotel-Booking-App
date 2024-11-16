@@ -25,7 +25,7 @@ export default function HotelList() {
   const [loading, setLoading] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
   const [hasMore, setHasMore] = useState<boolean>(true); // To check if more hotels are available
-  const [searchTerm, setSearchTerm] = useState<string>();
+  const [searchTerm, setSearchTerm] = useState<string>('');
   // const [filteredHotels, setFilteredHotels] = useState<Hotel[]>([]); 
   const BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
@@ -34,7 +34,7 @@ export default function HotelList() {
       setLoading(true);
       try {
         const response = await axios.get<Hotel[]>( // Type the response
-          `${BASE_URL}/api/hotels?page=${page}`
+          `http://localhost:5000/api/hotels?page=${page}`
         );
         const data = response.data;
         if (data.length === 0) {
@@ -83,10 +83,11 @@ export default function HotelList() {
           <div className="elixir-trip-hotel">ElixirTrip Hotel</div>
           <button>
             <input
+            type="text"
               onChange={(e) => setSearchTerm(e.target.value)}
               value={searchTerm}
               placeholder="destination"
-            ></input>{" "}
+            ></input>
             <img style={{ width: "25px" }} src="/svg/search-icon.svg" />{" "}
           </button>
           <div className="dropdown">

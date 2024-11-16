@@ -4,7 +4,7 @@ const cors = require("cors");
 
 const app = express();
 const allowedOrigins = ['https://hotel-booking-app-1-m6zn.onrender.com'];
-app.use(cors({ origin: allowedOrigins })); // Adjust if Next.js runs on a different port
+app.use(cors()); // Adjust if Next.js runs on a different port
 
 const BASE_URL = "https://api.elixirtrips.com/wp-json/wp/v2/hotels";
 
